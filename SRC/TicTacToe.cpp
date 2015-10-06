@@ -166,6 +166,8 @@ int main() {
 	string p1choice;
 	string p2choice;
 
+	int count = 0; //will keep track of the number of loops
+
 	//main loop for game
 	while (true) {
 		cout << p1.getName() << ", please choose a position to place your tile: ";
@@ -185,6 +187,12 @@ int main() {
 			break;
 		}
 
+		//check for a tie
+		if (count == 4) {
+				cout << "It's a tie!";
+				break;
+			}
+
 		cout << p2.getName() << ", please choose a position to place your tile: ";
 		cin >> p2choice;
 		while (choiceCheck(p1choice) == false ) {
@@ -201,7 +209,7 @@ int main() {
 				cout << p2.getName() << " WINS!" << endl;
 				break;
 			}
-
+		count ++;
 	}
 
 
